@@ -1,0 +1,9 @@
+/*
+ * O elemento custom <ui-input> é inline por padrão, então margens verticais
+ * (ex.: as aplicadas por space-y-* do Tailwind) eram ignoradas, deixando os
+ * campos colados. Tornar o host block-level restaura o espaçamento vertical.
+ */
+:host {
+  display: block;
+  width: 100%;
+}

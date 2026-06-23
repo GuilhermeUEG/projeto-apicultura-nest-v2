@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell($ErrorActionPreference='SilentlyContinue'; \"=== node ===\"; node --version; \"=== npm ===\"; npm --version; \"=== claude existente? ===\"; \\(Get-Command claude\\).Source; \"=== winget ===\"; \\(Get-Command winget\\).Source)",
+      "PowerShell(npm install -g @anthropic-ai/claude-code)",
+      "PowerShell($ErrorActionPreference='SilentlyContinue'; \"=== versão ===\"; claude --version; \"=== local do binário ===\"; \\(Get-Command claude\\).Source)",
+      "PowerShell($src = \"Atividade-2VA-20261-v2.docx\"; $dest = \"$env:TEMP\\\\claude\\\\docx_extract\"; if \\(Test-Path $dest\\) { Remove-Item -Recurse -Force $dest }; New-Item -ItemType Directory -Force -Path $dest | Out-Null; Add-Type -AssemblyName System.IO.Compression.FileSystem; [System.IO.Compression.ZipFile]::ExtractToDirectory\\(\\(Resolve-Path $src\\), $dest\\); Get-ChildItem -Recurse $dest | Select-Object FullName)",
+      "PowerShell(Get-ChildItem -Recurse -File apps\\\\backend\\\\src | Select-Object @{N='Path';E={$_.FullName.Replace\\(\\(Get-Location\\).Path + '\\\\apps\\\\backend\\\\src\\\\',''\\)}} | Sort-Object Path | Format-Table -AutoSize)",
+      "PowerShell(Get-ChildItem -Recurse -File apps\\\\frontend\\\\src | Select-Object @{N='Path';E={$_.FullName.Replace\\(\\(Get-Location\\).Path + '\\\\apps\\\\frontend\\\\src\\\\',''\\)}} | Sort-Object Path | Format-Table -AutoSize)",
+      "PowerShell(pnpm install 2>&1)",
+      "PowerShell(pnpm --filter backend build 2>&1)",
+      "PowerShell(node \"C:\\\\Users\\\\GUILHE~1\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-Guilherme-Downloads-projeto-apicultura-nest-main-projeto-apicultura-nest-main\\\\3de037b7-03f5-4e13-95eb-86e9f534fd3d\\\\scratchpad\\\\test-api.mjs\")",
+      "PowerShell(Set-Location \"c:\\\\Users\\\\Guilherme\\\\Downloads\\\\projeto-apicultura-nest-main\\\\projeto-apicultura-nest-main\\\\apps\\\\frontend\"; Write-Output \"===== package.json scripts =====\"; \\(Get-Content package.json | ConvertFrom-Json\\).scripts; Write-Output \"===== Angular deps =====\"; $p = Get-Content package.json | ConvertFrom-Json; $p.dependencies.PSObject.Properties | Where-Object { $_.Name -match 'angular' } | Select-Object Name, Value)",
+      "Bash(curl -s -o /dev/null -w \"backend health: HTTP %{http_code}\\\\n\" http://localhost:3000/swagger-ui)",
+      "Bash(grep -nE '^\\\\s*\\\\}\\\\s*$' src/app/pages/admin/users-list.component.ts)",
+      "PowerShell(node \"C:\\\\Users\\\\GUILHE~1\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-Guilherme-Downloads-projeto-apicultura-nest-main-projeto-apicultura-nest-main\\\\3de037b7-03f5-4e13-95eb-86e9f534fd3d\\\\scratchpad\\\\test-api.mjs\" 2>&1)",
+      "Bash(curl -s http://localhost:4200)",
+      "Bash(curl -s -i -X OPTIONS http://localhost:3000/auth/login -H 'Origin: http://localhost:4200' -H 'Access-Control-Request-Method: POST' -H 'Access-Control-Request-Headers: content-type')",
+      "Bash(curl -s -X POST http://localhost:3000/auth/login -H 'Origin: http://localhost:4200' -H 'Content-Type: application/json' -d '{\"email\":\"admin@ueg.br\",\"senha\":\"admin123\"}' -w '\\\\nHTTP %{http_code}\\\\n')",
+      "PowerShell($ports = @\\(3000,4200\\); foreach \\($p in $ports\\) { $c = Get-NetTCPConnection -LocalPort $p -State Listen -ErrorAction SilentlyContinue; if \\($c\\) { Write-Output \"Port $p still LISTENING \\(PID $\\($c.OwningProcess\\)\\)\"; } else { Write-Output \"Port $p free\" } })",
+      "PowerShell(Start-Sleep -Seconds 2; Set-Location \"c:\\\\Users\\\\Guilherme\\\\Downloads\\\\projeto-apicultura-nest-main\\\\projeto-apicultura-nest-main\\\\apps\\\\backend\"; Remove-Item -Force apicultura.sqlite -ErrorAction SilentlyContinue; Remove-Item -Force simulated_emails.log -ErrorAction SilentlyContinue; $p3 = Get-NetTCPConnection -LocalPort 3000 -State Listen -ErrorAction SilentlyContinue; $p4 = Get-NetTCPConnection -LocalPort 4200 -State Listen -ErrorAction SilentlyContinue; Write-Output \\(\"Port 3000: \" + $\\(if \\($p3\\) {\"in use\"} else {\"free\"}\\)\\); Write-Output \\(\"Port 4200: \" + $\\(if \\($p4\\) {\"in use\"} else {\"free\"}\\)\\); Write-Output \\(\"DB present: \" + \\(Test-Path apicultura.sqlite\\)\\))",
+      "PowerShell(Set-Location \"c:\\\\Users\\\\Guilherme\\\\Downloads\\\\projeto-apicultura-nest-main\\\\projeto-apicultura-nest-main\\\\apps\\\\backend\"; Remove-Item -Force apicultura.sqlite, simulated_emails.log -ErrorAction SilentlyContinue; Write-Output \\(\"DB present: \" + \\(Test-Path apicultura.sqlite\\)\\))",
+      "Skill(artifact-design)",
+      "Skill(artifact-design:*)"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+.idea/
+node_modules
+.turbo/cache/*
+apps/backend/.turbo/*
+apps/backend/dist/*
+apps/frontend/.turbo/*
+packages/utils/dist/*
+apps/frontend/.angular/cache/*
+apps/frontend/dist/*
+apps/backend/dist_test/*
+packages/utils/.turbo/
+apps/backend/database.sqlite
+apps/backend/*.sqlite
+apps/backend/simulated_emails.log
+apps/backend/.env
+packages/typescript-config/dist/*
+.env
